@@ -10,7 +10,7 @@ const HomeScreen = () => {
 
   const filterResultsByPrice = price => {
     // price === '$' || '$$' || '$$$'
-    return results.filter(result => {
+    return (results as any).filter(result => {
       return result.price === price;
     });
   };
@@ -20,7 +20,7 @@ const HomeScreen = () => {
       <SearchBar
         term={term}
         onTermChange={setTerm}
-        onTermSubmit={() => searchApi(term)}
+        onTermSubmit={() => (searchApi as any)(term)}
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
       <ScrollView>
